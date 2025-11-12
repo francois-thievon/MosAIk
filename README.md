@@ -14,14 +14,14 @@ Le travail s’inscrit dans le cadre du **projet MOSAIK (Modélisation et Quanti
 Un modèle de classification probabiliste classique ne capture qu’un seul type d’incertitude : la **probabilité d’appartenance à une classe**.  
 Or, plusieurs natures d’incertitude coexistent :
 
-- **Incertitude aléatoire (épistémique)** : liée à la difficulté intrinsèque du problème (ex. lancer de pièce).
-- **Incertitude informationnelle (modélisation)** : liée à un manque de données ou à des observations rares (ex. apparition d’un O.V.N.I dans un problème Avion/Oiseau).
+- **Incertitude aléatoire** : liée à la difficulté intrinsèque du problème (ex. lancer de pièce).
+- **Incertitude épistémique (modélisation)** : liée à un manque de données ou à des observations rares (ex. apparition d’un O.V.N.I dans un problème Avion/Oiseau).
 
 Plusieurs approches existent pour modéliser ces différentes incertitudes :
 - **Méthodes bayésiennes** (ex. Dropout bayésien, BNN)
 - **Méthodes ensemblistes** (ensembles de modèles, variance prédictive)
-- **Minimisation de risque de second ordre**
-- **Méthodes par densité locale**
+- **Minimisation de risque de second ordre** (Evidential Deep Learning)
+- **Méthodes par densité locale** (modélisation de P(X) plutôt que P(Y|X))
 
 Le projet explore cette problématique à travers trois approches complémentaires : démonstration, preuve empirique, et preuve formelle.
 
