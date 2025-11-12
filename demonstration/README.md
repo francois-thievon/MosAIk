@@ -39,12 +39,12 @@ Le notebook `demo_mnist.ipynb` démontre une **approche complète de quantificat
 ## 📚 Organisation générale du notebook
 
 Le notebook suit cette structure :
-Cellules 1-6 → Chargement et visualisation MNIST
-Cellules 7-10 → Baseline MLP (784→256→128→10)
-Cellules 11-13 → Single Autoencoder (784→256→128→10→128→256→784)
-Cellules 14-15 → Chargement Fashion MNIST (données OOD)
-Cellules 16-22 → Deep Ensemble MLP (K=10) + Uncertainties
-Cellules 23-28 → Deep Ensemble Autoencodeurs (K=10) + Uncertainties
+Cellules 1-6 → Chargement et visualisation MNIST  
+Cellules 7-10 → Baseline MLP (784→256→128→10)  
+Cellules 11-13 → Single Autoencoder (784→256→128→10→128→256→784)  
+Cellules 14-15 → Chargement Fashion MNIST (données OOD)  
+Cellules 16-22 → Deep Ensemble MLP (K=10) + Uncertainties  
+Cellules 23-28 → Deep Ensemble Autoencodeurs (K=10) + Uncertainties  
 Cellule 29 → Comparaison MLP vs Autoencodeurs
 
 ---
@@ -55,7 +55,7 @@ Cellule 29 → Comparaison MLP vs Autoencodeurs
 
 **MNIST Loading** - Chargement du dataset complet (60K train, 10K test) via fichiers IDX binaires
 
-**MLP Baseline** - Réseau simple 784→256→128→10 pour référence de performance (~97% accuracy)
+**MLP Baseline** - Réseau simple 784→256→128→10 pour référence de performance (~98% accuracy)
 
 **Single Autoencoder** - Autoencodeur de démonstration avec bottleneck 10D pour vérifier la reconstruction
 
@@ -84,19 +84,19 @@ $$u_e = MI = H(\bar{p}(x)) - \frac{1}{K}\sum_{k=1}^{K} H(p_k(x))$$
 
 #### Détection OOD
 
-**Seuil** : 75e percentile du ratio $u_e / u_a$ sur MNIST
+**Seuil** : 95e percentile du ratio $u_e / u_a$ sur MNIST
 
 **Décision** : 
 - Si ratio > threshold → Classé comme **OOD (anomaly)**
 - Sinon → Classé comme **ID (normal)**
 
-**Résultats attendus** :
-- **FPR** (MNIST) : ~25% (faux positifs acceptables)
-- **TPR** (Fashion MNIST) : ~90%+ (excellente détection)
+**Résultats** :
+- **FPR** (MNIST) : ~5% (Fausses anomalies détectées)
+- **TPR** (Fashion MNIST) : ~75% (Vraies anomalies détectées)
 
 #### Visualisations
 
-1. **KDE Plot Aleatoric** : Distributions MNIST vs Fashion MNIST (quasi-identiques = attendu)
+1. **KDE Plot Aleatoric** : Distributions bien séparées (MNIST << Fashion MNIST)
 2. **KDE Plot Epistemic** : Distributions bien séparées (MNIST << Fashion MNIST)
 3. **2D Scatter** : Aleatoric vs Epistemic avec limite décisionnelle (diagonal)
 
@@ -144,8 +144,8 @@ Même stratégie ratio-based, seuil indépendant calculé sur MNIST
 |--------|-----|--------------|
 | Architecture | Supervisée | Non-supervisée |
 | Prédictions | Softmax direct | Bottleneck softmax |
-| FPR (MNIST) | ~25% | ? |
-| TPR (Fashion) | ~90%+ | ? |
+| FPR (MNIST) | ~5% | ? |
+| TPR (Fashion) | ~75%+ | ? |
 | Représentation | 128D → 10D softmax | 10D ReLU bottleneck |
 
 **Questions explorées :**
