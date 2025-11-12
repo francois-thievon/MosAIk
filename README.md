@@ -18,8 +18,8 @@ Or, plusieurs natures d’incertitude coexistent :
 - **Incertitude épistémique (modélisation)** : liée à un manque de données ou à des observations rares (ex. apparition d’un O.V.N.I dans un problème Avion/Oiseau).
 
 Plusieurs approches existent pour modéliser ces différentes incertitudes :
-- **Méthodes bayésiennes** (ex. Dropout bayésien, BNN)
-- **Méthodes ensemblistes** (ensembles de modèles, variance prédictive)
+- **Méthodes bayésiennes** (ex. MCMC, Inférence variationnelle, Approximation de Laplace, BNN)
+- **Méthodes ensemblistes** (ensembles de modèles, Dropout, variance prédictive)
 - **Minimisation de risque de second ordre** (Evidential Deep Learning)
 - **Méthodes par densité locale** (modélisation de P(X) plutôt que P(Y|X))
 
@@ -115,12 +115,6 @@ Cette section ne contient **aucun code**, uniquement des démonstrations et dév
 ## 👥 Encadrement
 
 Projet de recherche mené au sein de l’équipe **MosAIk – LORIA**, dans le cadre d’un **projet de fin d’études** en data science et intelligence artificielle.
-
----
-
-## 📜 Licence
-
-Ce projet est distribué sous licence MIT — voir le fichier [LICENSE](./LICENSE) pour plus d’informations.
 
 ---
 
