@@ -1,13 +1,13 @@
 
 from sklearn.ensemble import RandomForestClassifier
 from scipy.stats import beta
-from deep_eknn import EKNN
+from demonstration.deep_eknn import EKNN
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from scipy.optimize import minimize_scalar
 from laplace import Laplace
 import torch
-from NN import PyTorchMLP, PyTorchMLPDropout, PyTorchMLPDropConnect
+from demonstration.NN import PyTorchMLP, PyTorchMLPDropout, PyTorchMLPDropConnect
 import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
 import GPy
