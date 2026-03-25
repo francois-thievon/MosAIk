@@ -1,0 +1,64 @@
+Session 159664_1
+Running on sh11
+Copying source to local scratch
+Wed Mar 18 12:56:43 CET 2026
+Checkout commit 601f3fc51563a838e3a7cb61316b688a25f55048
+D	demonstration/__pycache__/NN.cpython-311.pyc
+D	preuve_empirique/__pycache__/extreme_ratio_sweep_v1.cpython-39.pyc
+M	preuve_empirique/job.sbatch
+Setup virtual environment
+Derived venv created in /tmp/sdim_2-159664/venv
+You can activate it using :  source /tmp/sdim_2-159664/venv/bin/activate
+Launching extreme ratio sweep
+Device: cuda
+Nombre de ratios tests: 30
+Ratios selectionnes: [0.01, 0.037, 0.062, 0.091, 0.12, 0.146, 0.175, 0.2, 0.208, 0.25, 0.286, 0.312, 0.357, 0.4, 0.429, 0.438, 0.5, 0.571, 0.583, 0.6, 0.625, 0.667, 0.7, 0.714, 0.75, 0.8, 0.833, 0.857, 0.875, 1.0]
+Attention: cette v1 est volontairement extreme. Avec 10 000 points, 50 repetitions et plusieurs dizaines de ratios, le runtime peut etre tres long.
+Repeat  1/50 termine | Spearman moyen du repeat = 0.2352 | Progression = 30/1500
+Repeat  2/50 termine | Spearman moyen du repeat = 0.2512 | Progression = 60/1500
+Repeat  3/50 termine | Spearman moyen du repeat = 0.2560 | Progression = 90/1500
+Repeat  4/50 termine | Spearman moyen du repeat = 0.2499 | Progression = 120/1500
+Repeat  5/50 termine | Spearman moyen du repeat = 0.2523 | Progression = 150/1500
+Repeat  6/50 termine | Spearman moyen du repeat = 0.2472 | Progression = 180/1500
+Repeat  7/50 termine | Spearman moyen du repeat = 0.2388 | Progression = 210/1500
+Repeat  8/50 termine | Spearman moyen du repeat = 0.2435 | Progression = 240/1500
+Repeat  9/50 termine | Spearman moyen du repeat = 0.2432 | Progression = 270/1500
+Repeat 10/50 termine | Spearman moyen du repeat = 0.2517 | Progression = 300/1500
+Repeat 11/50 termine | Spearman moyen du repeat = 0.2532 | Progression = 330/1500
+Repeat 12/50 termine | Spearman moyen du repeat = 0.2485 | Progression = 360/1500
+Repeat 13/50 termine | Spearman moyen du repeat = 0.2555 | Progression = 390/1500
+Repeat 14/50 termine | Spearman moyen du repeat = 0.2476 | Progression = 420/1500
+Repeat 15/50 termine | Spearman moyen du repeat = 0.2598 | Progression = 450/1500
+Repeat 16/50 termine | Spearman moyen du repeat = 0.2445 | Progression = 480/1500
+Repeat 17/50 termine | Spearman moyen du repeat = 0.2437 | Progression = 510/1500
+Repeat 18/50 termine | Spearman moyen du repeat = 0.2574 | Progression = 540/1500
+Repeat 19/50 termine | Spearman moyen du repeat = 0.2441 | Progression = 570/1500
+Repeat 20/50 termine | Spearman moyen du repeat = 0.2457 | Progression = 600/1500
+Repeat 21/50 termine | Spearman moyen du repeat = 0.2465 | Progression = 630/1500
+Repeat 22/50 termine | Spearman moyen du repeat = 0.2496 | Progression = 660/1500
+Repeat 23/50 termine | Spearman moyen du repeat = 0.2472 | Progression = 690/1500
+Repeat 24/50 termine | Spearman moyen du repeat = 0.2561 | Progression = 720/1500
+Repeat 25/50 termine | Spearman moyen du repeat = 0.2487 | Progression = 750/1500
+Repeat 26/50 termine | Spearman moyen du repeat = 0.2386 | Progression = 780/1500
+Repeat 27/50 termine | Spearman moyen du repeat = 0.2496 | Progression = 810/1500
+Repeat 28/50 termine | Spearman moyen du repeat = 0.2460 | Progression = 840/1500
+Repeat 29/50 termine | Spearman moyen du repeat = 0.2431 | Progression = 870/1500
+Repeat 30/50 termine | Spearman moyen du repeat = 0.2585 | Progression = 900/1500
+Repeat 31/50 termine | Spearman moyen du repeat = 0.2528 | Progression = 930/1500
+Repeat 32/50 termine | Spearman moyen du repeat = 0.2489 | Progression = 960/1500
+Repeat 33/50 termine | Spearman moyen du repeat = 0.2474 | Progression = 990/1500
+Repeat 34/50 termine | Spearman moyen du repeat = 0.2518 | Progression = 1020/1500
+Repeat 35/50 termine | Spearman moyen du repeat = 0.2528 | Progression = 1050/1500
+Repeat 36/50 termine | Spearman moyen du repeat = 0.2558 | Progression = 1080/1500
+Repeat 37/50 termine | Spearman moyen du repeat = 0.2451 | Progression = 1110/1500
+Repeat 38/50 termine | Spearman moyen du repeat = 0.2560 | Progression = 1140/1500
+Repeat 39/50 termine | Spearman moyen du repeat = 0.2482 | Progression = 1170/1500
+Repeat 40/50 termine | Spearman moyen du repeat = 0.2499 | Progression = 1200/1500
+Repeat 41/50 termine | Spearman moyen du repeat = 0.2423 | Progression = 1230/1500
+Repeat 42/50 termine | Spearman moyen du repeat = 0.2587 | Progression = 1260/1500
+Repeat 43/50 termine | Spearman moyen du repeat = 0.2528 | Progression = 1290/1500
+Repeat 44/50 termine | Spearman moyen du repeat = 0.2410 | Progression = 1320/1500
+Repeat 45/50 termine | Spearman moyen du repeat = 0.2475 | Progression = 1350/1500
+Repeat 46/50 termine | Spearman moyen du repeat = 0.2471 | Progression = 1380/1500
+Repeat 47/50 termine | Spearman moyen du repeat = 0.2471 | Progression = 1410/1500
+Repeat 48/50 termine | Spearman moyen du repeat = 0.2489 | Progression = 1440/1500

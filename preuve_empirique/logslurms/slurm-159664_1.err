@@ -1,0 +1,19 @@
+Note: switching to '601f3fc51563a838e3a7cb61316b688a25f55048'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 601f3fc ajout submit slurm
+slurmstepd: error: *** JOB 159664 ON sh11 CANCELLED AT 2026-03-19T00:57:10 DUE TO TIME LIMIT ***

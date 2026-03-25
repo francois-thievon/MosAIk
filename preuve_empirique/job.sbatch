@@ -4,13 +4,13 @@
 #SBATCH --nodes=1
 #SBATCH --partition=gpu_prod_long
 #SBATCH --time=12:00:00
-#SBATCH --output=logslurms/slurm-%A_%a.out
-#SBATCH --error=logslurms/slurm-%A_%a.err
+#SBATCH --output=/Users/theobeaumont/Desktop/MosAIk/preuve_empirique/logslurms/slurm-%A_%a.out
+#SBATCH --error=/Users/theobeaumont/Desktop/MosAIk/preuve_empirique/logslurms/slurm-%A_%a.err
 #SBATCH --array=1-1
 
 set -euo pipefail
 
-current_dir="$(pwd)"
+current_dir="/Users/theobeaumont/Desktop/MosAIk/preuve_empirique"
 source_dir="/Users/theobeaumont/Desktop/MosAIk"
 work_subdir="preuve_empirique"
 base_seed=1234
@@ -23,9 +23,9 @@ date
 mkdir -p "$TMPDIR/code"
 rsync -a --exclude __pycache__ --exclude .pytest_cache --exclude .mypy_cache "$source_dir"/ "$TMPDIR/code"/
 
-echo "Checkout commit b64502839800be9f98e1becb2657e394ef123f5d"
+echo "Checkout commit 601f3fc51563a838e3a7cb61316b688a25f55048"
 cd "$TMPDIR/code"
-git checkout b64502839800be9f98e1becb2657e394ef123f5d
+git checkout 601f3fc51563a838e3a7cb61316b688a25f55048
 
 echo "Setup virtual environment"
 /opt/dce/dce_venv.sh /mounts/datasets/venvs/torch-2.7.1 "$TMPDIR/venv"

@@ -2,7 +2,9 @@
 
 import argparse
 import shlex
+import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -43,6 +45,7 @@ def sanitize_sweep_args(raw_args: list[str]) -> list[str]:
 def make_job(
     commit_id: str,
     repo_root: Path,
+    script_dir: Path,
     relative_workdir: Path,
     nruns: int,
     partition: str,
@@ -51,19 +54,21 @@ def make_job(
     sweep_args: list[str],
 ) -> str:
     sweep_args_shell = shlex.join(sweep_args)
+    logs_dir = (script_dir / "logslurms").as_posix()
+    output_root = script_dir.as_posix()
     return f"""#!/bin/bash
 
 #SBATCH --job-name=extreme_ratio_sweep_v1
 #SBATCH --nodes=1
-#SBATCH --partition=gpu_prod_long
-#SBATCH --time=12:00:00
-#SBATCH --output=logslurms/slurm-%A_%a.out
-#SBATCH --error=logslurms/slurm-%A_%a.err
+#SBATCH --partition={partition}
+#SBATCH --time={walltime}
+#SBATCH --output={logs_dir}/slurm-%A_%a.out
+#SBATCH --error={logs_dir}/slurm-%A_%a.err
 #SBATCH --array=1-{nruns}
 
 set -euo pipefail
 
-current_dir="$(pwd)"
+current_dir="{output_root}"
 source_dir="{repo_root}"
 work_subdir="{relative_workdir.as_posix()}"
 base_seed={base_seed}
@@ -101,6 +106,13 @@ rsync -av "$run_output_dir"/ "$current_dir/extreme_ratio_sweep_v1_outputs/run_${
 
 def submit_job(job_script: str, sbatch_path: Path) -> None:
     sbatch_path.write_text(job_script, encoding="utf-8")
+    if shutil.which("sbatch") is None:
+        raise RuntimeError(
+            "La commande 'sbatch' est introuvable sur cette machine. "
+            f"Le fichier de soumission a ete genere dans {sbatch_path}. "
+            "Lance cette commande sur un noeud/login de cluster SLURM, "
+            "ou utilise --dry-run pour uniquement generer le script."
+        )
     subprocess.run(["sbatch", str(sbatch_path)], check=True)
 
 
@@ -153,6 +165,7 @@ def main() -> None:
     job_script = make_job(
         commit_id=commit_id,
         repo_root=repo_root,
+        script_dir=script_dir,
         relative_workdir=relative_workdir,
         nruns=args.nruns,
         partition=args.partition,
@@ -166,7 +179,11 @@ def main() -> None:
         print(f"Dry run: wrote {sbatch_path}")
         return
 
-    submit_job(job_script, sbatch_path)
+    try:
+        submit_job(job_script, sbatch_path)
+    except RuntimeError as exc:
+        print(str(exc))
+        sys.exit(1)
 
 
 if __name__ == "__main__":

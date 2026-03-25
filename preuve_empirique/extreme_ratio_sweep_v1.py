@@ -23,7 +23,7 @@ ResultRow = dict[str, ResultValue]
 @dataclass
 class ExperimentConfig:
     output_dir: Path
-    n_samples: int = 10_000
+    n_samples: int = 5_000
     n_blobs: int = 2
     rank: int = 2
     repeats: int = 50
